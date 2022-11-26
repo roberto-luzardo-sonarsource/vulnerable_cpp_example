@@ -19,6 +19,8 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ItemGroup>
+    <ClCompile Include="FileCode.c" />
+    <ClCompile Include="MemsetCode.c" />
     <ClCompile Include="src/main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />

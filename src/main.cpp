@@ -1,4 +1,8 @@
 #include <iostream>
+#include<stdio.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <access.idl>
 
 using namespace std;
 
@@ -29,4 +33,8 @@ void nonComplaintCode()
     char array[10];
     void const* pos = memchr(array, '@', 42);
 }
+
+
+
+
 
