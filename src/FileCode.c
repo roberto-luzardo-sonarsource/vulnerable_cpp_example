@@ -34,3 +34,6 @@ void open_without_toctou(const char* file)
     }
 }
 
+int main(void) {
+    return 0;
+}
