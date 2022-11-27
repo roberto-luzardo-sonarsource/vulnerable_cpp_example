@@ -34,6 +34,12 @@ void nonComplaintCode()
     void const* pos = memchr(array, '@', 42);
 }
 
+void ComplaintCode()
+{
+    char array[10];
+    void const* pos = memchr(array, '@', 10);
+}
+
 
 
 
