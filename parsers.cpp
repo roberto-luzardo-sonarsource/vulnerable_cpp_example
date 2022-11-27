@@ -25,8 +25,9 @@ void compliant_parser(const char* xmlFile)
 
 	parser->parse(xmlFile);
 }
-
 */
+
+
 
 
 
