@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include<xercesc/parsers/XercesDOMParser.hpp>
 
 using namespace std;
@@ -26,7 +26,7 @@ void compliant_parser(const char* xmlFile)
 	parser->parse(xmlFile);
 }
 
-
+*/
 
 
 
