@@ -17,14 +17,12 @@ jobs:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - name: Set up msbuild
         uses: microsoft/setup-msbuild@v1.1
-	- task: NuGetCommand@2
-  	inputs:
-    		command: pack
-    		packagesToPack: '**/*.csproj'
-    		packDestination: '$(Build.ArtifactStagingDirectory)'
+      - name: Setup NuGet.exe for use with actions
+        uses: NuGet/setup-nuget@v1.1.1
       - name: Install sonar-scanner and build-wrapper
         uses: SonarSource/sonarcloud-github-c-cpp@v1
       - name: Run build-wrapper
+        
         run: |
           build-wrapper-win-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} msbuild sonar_scanner_example.vcxproj /t:rebuild /nodeReuse:false
       - name: Run sonar-scanner
