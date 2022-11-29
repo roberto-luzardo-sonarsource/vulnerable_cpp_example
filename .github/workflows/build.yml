@@ -19,6 +19,8 @@ jobs:
         uses: microsoft/setup-msbuild@v1.1
       - name: Setup NuGet.exe for use with actions
         uses: NuGet/setup-nuget@v1.1.1
+      - name: restore-nuget-packages
+        uses: IT-Service/restore-nuget-packages@v1
       - name: Install sonar-scanner and build-wrapper
         uses: SonarSource/sonarcloud-github-c-cpp@v1
       - name: Run build-wrapper
