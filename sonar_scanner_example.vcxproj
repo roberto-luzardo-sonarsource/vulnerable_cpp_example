@@ -43,6 +43,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ItemGroup>
     <ClCompile Include="Cipher.cpp" />
+    <ClCompile Include="cryptographyKeys.cpp" />
     <ClCompile Include="Encryption.cpp" />
     <ClCompile Include="Insecure.c" />
     <ClCompile Include="FileCode.c" />
@@ -51,6 +52,7 @@
     <ClCompile Include="src/main.cpp" />
     <ClCompile Include="src\placeholder.c" />
     <ClCompile Include="tlsConnect.cpp" />
+    <ClCompile Include="tlsProtocol.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />
 </Project>
