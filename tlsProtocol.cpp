@@ -16,7 +16,7 @@ class Client_Credentials : public Botan::Credentials_Manager
     // ...
 };
 
-int protocol_main() 
+void protocol_main() 
 {
     // Non-complient code
     Callbacks* callbacks;
