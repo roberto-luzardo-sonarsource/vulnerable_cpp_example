@@ -2,13 +2,13 @@
 #include<string.h>
 
 
-void non(char* password, size_t bufferSize) {
+/*void non(char* password, size_t bufferSize) {
     char *localToken;
     localToken = *password;
     memset(password, ' ', strlen(password)); // Noncompliant, password is about to be freed
     memset(localToken, ' ', strlen(localToken)); // Noncompliant, localToken is about to go out of scope
     free(password);
-}
+}*/
 
 #ifdef __STDC_LIB_EXT1__
 void com(char* password, size_t bufferSize) {

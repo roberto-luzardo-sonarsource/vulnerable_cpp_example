@@ -10,5 +10,5 @@ void nonValid_placeholder(void)
 void Valid_placeholder(void)
 {
 	char buffer[10];
-	scanf("%9s", buffer);
+	scanf_s("%9s", buffer);
 }

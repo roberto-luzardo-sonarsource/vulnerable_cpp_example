@@ -4,22 +4,23 @@
 using namespace std;
 using namespace xercesc;
 
-void non_compliant_parser(const char* xmlFile)
+/*void non_compliant_parser(const char* xmlFile)
 {
 	XercesDOMParser* parser = new XercesDOMParser();
 
-	parser->setCreateEntityReferenceNodes(false); // Noncompliant
-	parser->setDisableDefaultEntityResolution(false); // Noncompliant
+	parser->setCreateEntityReferenceNodes(false); 
+	parser->setDisableDefaultEntityResolution(false); 
 
 	parser->parse(xmlFile);
 }
+*/
 
 void compliant_parser(const char* xmlFile)
 {
 	XercesDOMParser* parser = new XercesDOMParser();
 
-	parser->setCreateEntityReferenceNodes(true); // Compliant: explicitly make the parser safe to XXE vulnerability
-	parser->setDisableDefaultEntityResolution(true); // Compliant
+	parser->setCreateEntityReferenceNodes(true); 
+	parser->setDisableDefaultEntityResolution(true); 
 
 	parser->parse(xmlFile);
 }
