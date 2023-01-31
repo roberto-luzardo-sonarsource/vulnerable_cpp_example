@@ -33,10 +33,9 @@ void protocol_main()
 
 
     Botan::TLS::Strict_Policy new_policy; 
-
-
+    char serverUrl[] = "example.com";
     Botan::TLS::Client new_client(*callbacks, session_mgr, creds, new_policy, rng,
-        Botan::TLS::Server_Information("example.com", 443),
+        Botan::TLS::Server_Information(serverUrl, 443),
         Botan::TLS::Protocol_Version::TLS_V12);
 }
 
