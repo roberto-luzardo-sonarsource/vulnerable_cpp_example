@@ -18,8 +18,8 @@ int main(int argc, char* argv[]) {
 
 void ComplaintCode()
 {
-    char array[10] = "stemcells";
-    void const* pos = memchr(array, '@', 10);
+    char array[10];
+    void *pos = memchr(array, '@', 10);
 }
 
 
