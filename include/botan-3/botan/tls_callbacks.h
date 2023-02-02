@@ -149,7 +149,7 @@ class BOTAN_PUBLIC_API(2,0) Callbacks
           const std::vector<Certificate_Store*>& trusted_roots,
           Usage_Type usage,
           const std::string& hostname,
-          const TLS::Strict_Policy& policy);
+          const TLS::Policy& policy);
 
        /**
        * Called by default `tls_verify_cert_chain` to get the timeout to use for OCSP
@@ -247,7 +247,7 @@ class BOTAN_PUBLIC_API(2,0) Callbacks
           const std::vector<uint8_t>& modulus,
           const std::vector<uint8_t>& generator,
           const std::vector<uint8_t>& peer_public_value,
-          const Strict_Policy& policy,
+          const Policy& policy,
           RandomNumberGenerator& rng);
 
        /**
@@ -273,7 +273,7 @@ class BOTAN_PUBLIC_API(2,0) Callbacks
        virtual std::pair<secure_vector<uint8_t>, std::vector<uint8_t>> tls_ecdh_agree(
           const std::string& curve_name,
           const std::vector<uint8_t>& peer_public_value,
-          const Strict_Policy& policy,
+          const Policy& policy,
           RandomNumberGenerator& rng,
           bool compressed);
 
