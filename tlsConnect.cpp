@@ -5,7 +5,7 @@
 #include <botan/auto_rng.h>
 #include <botan/certstor.h>
 #include <botan/certstor_system.h>
-
+/*
 class InCallbacks : public Botan::TLS::Callbacks
 {
 
@@ -54,3 +54,4 @@ class Client_Credentials : public Botan::Credentials_Manager
 Botan::TLS::Client valid_client(*callbacks, session_mgr, creds, policy, rng,
     Botan::TLS::Server_Information("example.com", 443),
     Botan::TLS::Protocol_Version::TLS_V12); // Compliant; uses an implementation of Botan::TLS::Callbacks that validate server hostname
+    */

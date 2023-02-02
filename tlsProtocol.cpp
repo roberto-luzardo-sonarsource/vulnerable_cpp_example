@@ -5,7 +5,7 @@
 #include <botan/auto_rng.h>
 #include <botan/certstor.h>
 #include <botan/certstor_system.h>
-
+/*
 class Callbacks : public Botan::TLS::Callbacks
 {
     // ...
@@ -23,13 +23,13 @@ void protocol_main()
     Botan::AutoSeeded_RNG rng;
     Botan::TLS::Session_Manager_In_Memory session_mgr(rng);
     Client_Credentials creds;
-    /*Botan::TLS::Policy policy;
+    Botan::TLS::Policy policy;
 
 
 
     Botan::TLS::Client client(*callbacks, session_mgr, creds, policy, rng,
         Botan::TLS::Server_Information("example.com", 443),
-        Botan::TLS::Protocol_Version::TLS_V12);*/
+        Botan::TLS::Protocol_Version::TLS_V12);
 
 
     Botan::TLS::Strict_Policy new_policy; 
@@ -38,4 +38,4 @@ void protocol_main()
         Botan::TLS::Server_Information(serverUrl, 443),
         Botan::TLS::Protocol_Version::TLS_V12);
 }
-
+*/
