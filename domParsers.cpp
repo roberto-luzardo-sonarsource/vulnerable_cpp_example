@@ -4,7 +4,7 @@
 using namespace std;
 using namespace xercesc;
 
-/*void non_compliant_parser(const char* xmlFile)
+void non_compliant_parser(const char* xmlFile)
 {
 	XercesDOMParser* parser = new XercesDOMParser();
 
@@ -13,7 +13,7 @@ using namespace xercesc;
 
 	parser->parse(xmlFile);
 }
-*/
+
 
 void compliant_parser(const char* xmlFile)
 {

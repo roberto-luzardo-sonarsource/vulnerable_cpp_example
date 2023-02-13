@@ -10,11 +10,11 @@ int main(int argc, char* argv[]) {
   return 0;
 }
 
-/*void nonComplaintCode()
+void nonComplaintCode()
 {
     char array[10];
     void const* pos = memchr(array, '@', 42);
-}*/
+}
 
 void ComplaintCode()
 {

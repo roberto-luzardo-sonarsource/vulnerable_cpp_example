@@ -3,7 +3,7 @@
 #include <botan/rsa.h>
 #include<botan/rng.h>
 
-/*void non_cipher(void)
+void non_cipher(void)
 {
 	Botan::Cipher_Mode::create("Blowfish/CBC/PKCS7", Botan::ENCRYPTION);      
 	Botan::Cipher_Mode::create("DES/CBC/PKCS7", Botan::ENCRYPTION);         
@@ -17,7 +17,7 @@
 	Botan::Cipher_Mode::create("XTEA/CBC/PKCS7", Botan::ENCRYPTION);          
 	Botan::Cipher_Mode::create("RC4", Botan::ENCRYPTION);
 
-}*/
+}
 
 void valid_cipher(void)
 {
