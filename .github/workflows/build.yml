@@ -37,15 +37,10 @@ jobs:
           Add-Type -AssemblyName System.IO.Compression.FileSystem
           [System.IO.Compression.ZipFile]::ExtractToDirectory($path, "$HOME/.sonar")
 
-      - name: Add Build wrapper and SonarScanner to path
+      - name: Build
         shell: powershell
         run: |
-          $env:Path += ";$HOME/.sonar/build-wrapper-win-x86"
-          $env:Path += ";$HOME/.sonar/sonar-scanner-4.6.2.2472-windows/bin"
-
-      - name: Build and analyze project
-        run: |
-          build-wrapper-win-x86-64 --out-dir bw-output msbuild sonar_scanner_example.vcxproj /t:rebuild /nodeReuse:false
+          $HOME/.sonar/build-wrapper-win-x86/build-wrapper-win-x86-64.exe --out-dir bw-output msbuild sonar_scanner_example.vcxproj /t:rebuild /nodeReuse:false
 
       - name: Run sonar-scanner
         env:
@@ -53,4 +48,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Put the name of your token here
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
+          $env:Path += ";$HOME/.sonar/sonar-scanner-4.6.2.2472-windows/bin"
           sonar-scanner -D sonar.cfamily.build-wrapper-output=bw-output
