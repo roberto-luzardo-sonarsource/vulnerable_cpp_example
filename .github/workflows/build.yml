@@ -7,8 +7,8 @@ on:
 
 jobs:
   build:
-    name: Build and analyze
     runs-on: windows-latest
+    
     steps:
       - uses: actions/checkout@v3
         with:
@@ -27,15 +27,15 @@ jobs:
           [System.IO.Compression.ZipFile]::ExtractToDirectory($path, "$HOME/.sonar")
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
-       - name: Download and install the SonarScanner
-         shell: powershell
-         run: |
-           $path = "$HOME/.sonar/sonar-scanner-cli-4.6.2.2472-windows.zip"
-           [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-           (New-Object System.Net.WebClient).DownloadFile("https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-windows.zip", $path)
-           Add-Type -AssemblyName System.IO.Compression.FileSystem
-           [System.IO.Compression.ZipFile]::ExtractToDirectory($path, "$HOME/.sonar")
+          
+      - name: Download and install the SonarScanner
+        shell: powershell
+        run: |
+          $path = "$HOME/.sonar/sonar-scanner-cli-4.6.2.2472-windows.zip"
+          [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+          (New-Object System.Net.WebClient).DownloadFile("https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-windows.zip", $path)
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          [System.IO.Compression.ZipFile]::ExtractToDirectory($path, "$HOME/.sonar")
 
       - name: Add Build wrapper and SonarScanner to path
         shell: powershell
