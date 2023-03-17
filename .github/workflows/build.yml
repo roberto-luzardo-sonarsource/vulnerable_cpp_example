@@ -40,7 +40,7 @@ jobs:
       - name: Build
         shell: powershell
         run: |
-          "$HOME/.sonar/build-wrapper-win-x86/build-wrapper-win-x86-64.exe" --out-dir bw-output msbuild sonar_scanner_example.vcxproj /t:rebuild /nodeReuse:false
+          "$HOME/.sonar/build-wrapper-win-x86/build-wrapper-win-x86-64.exe --out-dir bw-output" msbuild sonar_scanner_example.vcxproj /t:rebuild /nodeReuse:false
 
       - name: Run sonar-scanner
         env:
