@@ -1,4 +1,4 @@
-name: SonarQube Analysis
+name: Build and Analyse w/ SonarQube
 on:
   push:
     branches:
@@ -18,15 +18,41 @@ jobs:
       - name: Set up msbuild
         uses: microsoft/setup-msbuild@v1.1
 
-      - name: Install sonar-scanner and build-wrapper
-        uses: SonarSource/sonarcloud-github-c-cpp@v1
-      - name: Run build-wrapper
-        
+      - name: Download and Install Build wrapper
+        shell: powershell
+        run: |
+          $path = "$HOME/.sonar/build-wrapper-win-x86.zip"
+          mkdir $HOME/.sonar
+          [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+          (New-Object System.Net.WebClient).DownloadFile("${{ secrets.SONAR_HOST_URL }}/static/cpp/build-wrapper-win-x86.zip", $path)
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          [System.IO.Compression.ZipFile]::ExtractToDirectory($path, "$HOME/.sonar")
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+       - name: Download and install the SonarScanner
+         shell: powershell
+         run: |
+           $path = "$HOME/.sonar/sonar-scanner-cli-4.6.2.2472-windows.zip"
+           [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+           (New-Object System.Net.WebClient).DownloadFile("https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-windows.zip", $path)
+           Add-Type -AssemblyName System.IO.Compression.FileSystem
+           [System.IO.Compression.ZipFile]::ExtractToDirectory($path, "$HOME/.sonar")
+
+      - name: Add Build wrapper and SonarScanner to path
+        shell: powershell
+        run: |
+          $env:Path += ";$HOME/.sonar/build-wrapper-win-x86"
+          $env:Path += ";$HOME/.sonar/sonar-scanner-4.6.2.2472-windows/bin"
+
+      - name: Build and analyze project
         run: |
           build-wrapper-win-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} msbuild sonar_scanner_example.vcxproj /t:rebuild /nodeReuse:false
+
       - name: Run sonar-scanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Put the name of your token here
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
-          sonar-scanner --define sonar.cfamily.build-wrapper-output="${{ env.BUILD_WRAPPER_OUT_DIR }}"
+          sonar-scanner -D sonar.cfamily.build-wrapper-output="${{ env.BUILD_WRAPPER_OUT_DIR }}"
