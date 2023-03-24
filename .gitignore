@@ -40,3 +40,4 @@ Release
 
 #Ignore code from library
 lib/*
+include/*
