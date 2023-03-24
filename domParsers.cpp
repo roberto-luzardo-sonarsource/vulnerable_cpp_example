@@ -1,4 +1,3 @@
-#include <iostream>
 #include<xercesc/parsers/XercesDOMParser.hpp>
 
 using namespace std;
