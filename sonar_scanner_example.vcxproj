@@ -50,6 +50,7 @@
     <ClCompile Include="FileCode.c" />
     <ClCompile Include="MemsetCode.c" />
     <ClCompile Include="domParsers.cpp" />
+    <ClCompile Include="Calculate.c" />
     <ClCompile Include="src/main.cpp" />
     <ClCompile Include="src\placeholder.c" />
     <ClCompile Include="tlsConnect.cpp" />
