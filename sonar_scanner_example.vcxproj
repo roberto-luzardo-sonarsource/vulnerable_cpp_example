@@ -46,7 +46,6 @@
     <ClCompile Include="Cipher.cpp" />
     <ClCompile Include="cryptographyKeys.cpp" />
     <ClCompile Include="Encryption.cpp" />
-    <ClCompile Include="Insecure.c" />
     <ClCompile Include="FileCode.c" />
     <ClCompile Include="MemsetCode.c" />
     <ClCompile Include="domParsers.cpp" />
