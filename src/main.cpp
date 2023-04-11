@@ -22,6 +22,12 @@ void ComplaintCode()
     void *pos = memchr(array, '@', 10);
 }
 
+/* AM insert some vulberable code here */
+void VulnerableCode()
+{
+    char array[10];
+    void const* pos = memchr(array, '@', 50);
+}
 
 
 

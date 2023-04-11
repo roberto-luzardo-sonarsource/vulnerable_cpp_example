@@ -18,7 +18,18 @@ void non_cipher(void)
 	Botan::Cipher_Mode::create("RC4", Botan::ENCRYPTION);
 
 }
-
+/**********************************************************************************************************************************************
+ *
+ *
+ *
+ * Excessively long comments added
+ *
+ * comments here
+ * comments here
+ *
+ *
+ *
+ */
 void valid_cipher(void)
 {
 	Botan::Cipher_Mode::create("AES-256/GCM", Botan::ENCRYPTION); 
