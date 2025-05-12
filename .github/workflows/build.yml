@@ -50,4 +50,4 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
           $env:Path += ";$HOME/.sonar/sonar-scanner-7.1.0.4889-windows-x64/bin"
-          sonar-scanner -D sonar.cfamily.compile-commands=bw-output -D sonar.verbose=true
+          sonar-scanner -D sonar.cfamily.compile-commands=bw-output%/compile_commands.json% -D sonar.verbose=true
