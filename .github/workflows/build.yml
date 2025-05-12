@@ -49,5 +49,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Put the name of your token here
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
-          $env:Path += ";$HOME/.sonar/sonar-scanner-cli-7.1.0.4889-windows-x64"
+          $env:Path += ";$HOME/.sonar/sonar-scanner-7.1.0.4889-windows-x64/bin"
           sonar-scanner -D sonar.cfamily.build-wrapper-output=bw-output -D sonar.verbose=true
