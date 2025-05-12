@@ -31,9 +31,9 @@ jobs:
       - name: Download and install the SonarScanner
         shell: powershell
         run: |
-          $path = "$HOME/.sonar/sonar-scanner-cli-4.6.2.2472-windows.zip"
+          $path = "$HOME/.sonar/sonar-scanner-cli-7.1.0.4889-windows-x64.zip"
           [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-          (New-Object System.Net.WebClient).DownloadFile("https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-windows.zip", $path)
+          (New-Object System.Net.WebClient).DownloadFile("https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.1.0.4889-windows-x64.zip", $path)
           Add-Type -AssemblyName System.IO.Compression.FileSystem
           [System.IO.Compression.ZipFile]::ExtractToDirectory($path, "$HOME/.sonar")
 
@@ -49,5 +49,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Put the name of your token here
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
-          $env:Path += ";$HOME/.sonar/sonar-scanner-4.6.2.2472-windows/bin"
+          $env:Path += ";$HOME/.sonar/sonar-scanner-cli-7.1.0.4889-windows-x64"
           sonar-scanner -D sonar.cfamily.build-wrapper-output=bw-output -D sonar.verbose=true
